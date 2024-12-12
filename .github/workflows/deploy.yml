@@ -13,7 +13,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up python
+      - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
@@ -23,9 +23,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           
-      - name: Deploy to Render 
+      - name: Deploy to Render
         env:
-          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}  # Added a colon here
-        run: | 
-          curl -X POST -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \  # Fixed the header syntax
-          https://api.render.com/v1/services/<srv-ctdh4b3qf0us73bqsnl0>/deploys      
+          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+        run: |
+          curl -X POST \
+          -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
+          https://api.render.com/v1/services/srv-ctdh4b3qf0us73bqsnl0/deploys
