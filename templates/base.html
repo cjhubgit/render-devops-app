@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{% block title %}MY FLASK APP{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header style="text-align: center; background-color: blue; padding: 10px;">
+      <img src="{{ url_for('static', filename='images/devops_banner.jpg') }}" alt="DevOps Banner" style="height: 100px;">
+    </header>
+
+    <!-- Navigation Links -->
+    <nav style="text-align: center; margin: 10px;">
+      <a href="/" style="margin: 0 15px;">HOME</a>
+      <a href="/about" style="margin: 0 15px;">About Us</a>
+    </nav>
+
+    <!-- Main Content -->
+    <main style="padding: 20px;">
+      {% block content %}{% endblock %}
+    </main>
+  </body>
+</html>
